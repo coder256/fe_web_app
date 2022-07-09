@@ -33,19 +33,22 @@ const Home = () => {
     };
 
     const deleteItem = (index) => {
-        console.log("tryna delete item ::" + index);
+        let del_index = ((page-1)*5) + index;
+        // console.log("tryna delete item ::" + index);
+        console.log(`tryna delete item :: ${del_index}`);
         let itemsCopy = Object.assign([], items);
-        itemsCopy.splice(index, 1);
+        itemsCopy.splice(del_index, 1);
         setItems(itemsCopy);
     };
 
     const checkItem = (index) => {
-        console.log("tryna check item ::" + index);
+        let check_index = ((page-1)*5) + index;
+        console.log("tryna check item ::" + check_index);
         let checkedCopy = Object.assign([], checked);
-        checkedCopy.push(items[index]);
+        checkedCopy.push(items[check_index]);
         setChecked(checkedCopy);
         let itemsCopy = Object.assign([], items);
-        itemsCopy.splice(index, 1);
+        itemsCopy.splice(check_index, 1);
         setItems(itemsCopy);
     };
 
@@ -91,7 +94,8 @@ const Home = () => {
                 {
                     items.length ?
                         displayItems.map((item, index) => {
-                            return <ListItem item={item} index={index} onDelete={deleteItem} onChecked={checkItem} key={index}/>
+                            // return <ListItem item={item} index={index} onDelete={deleteItem} onChecked={checkItem} key={index}/>
+                            return <ListItem item={item} index={((page-1)*5) + index} onDelete={deleteItem} onChecked={checkItem} key={index}/>
                         })
                         :
                         <div className="text-muted"><h5>No items</h5></div>

@@ -1,14 +1,16 @@
-import React, {useEffect,} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState,} from 'react';
+import {Link, useParams} from 'react-router-dom';
 
 const ListItem = (props) => {
     const {item, index, onDelete, onChecked} = props;
+    const [checked, setChecked] = useState(false);
+    const {id} = useParams();
 
     return (
         <div className="container list-item py-2">
             <div className="row">
                 <div className="col-1">
-                    <input className="form-check-input me-1" type="checkbox"  onClick={() => onChecked(index)} />
+                    <input className="form-check-input me-1" type="checkbox" checked={checked}  onChange={() => onChecked(index)} />
                 </div>
                 <div className="col-8 col-md-9 text-start">{item}</div>
                 <div className="col-3 col-md-2">
