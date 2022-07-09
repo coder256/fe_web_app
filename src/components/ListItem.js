@@ -2,12 +2,14 @@ import React, {useEffect,} from 'react';
 import {Link} from 'react-router-dom';
 
 const ListItem = (props) => {
-    const {item, index, onDelete} = props;
+    const {item, index, onDelete, onChecked} = props;
 
     return (
         <div className="container list-item py-2">
             <div className="row">
-                <div className="col-1"><input className="form-check-input me-1" type="checkbox" value="" /></div>
+                <div className="col-1">
+                    <input className="form-check-input me-1" type="checkbox"  onClick={() => onChecked(index)} />
+                </div>
                 <div className="col-8 col-md-9 text-start">{item}</div>
                 <div className="col-3 col-md-2">
                     <Link to={`/edit/${index}`}>

@@ -54,3 +54,12 @@ body {
 .not-found {
   width: 100%;
 }
+
+.main-container {
+  margin-top: 60px;
+}
+
+.checked-items > .list-item {
+  text-decoration: line-through;
+  color: #8F8389;
+}

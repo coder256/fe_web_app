@@ -9,10 +9,10 @@ const Layout = () => {
                 </div>
             </nav>*/}
             <div className="fixed-top bg-default">
-                <h3 className="text-light">ToDO App</h3>
+                <h3 className="py-1"><Link className="text-light text-decoration-none" to="/">ToDO App</Link></h3>
             </div>
 
-            <div className="container mt-5">
+            <div className="container main-container">
                 <div className="row">
                     <div className="col-3"></div>
                     <div className="col-12 col-md-6 bg-light border-1 rounded-2 p-2">
