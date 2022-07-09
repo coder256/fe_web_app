@@ -5,10 +5,11 @@ const Home = () => {
 
     // const [items, setItems] = useState([]);
     const [items, setItems] = useState(localStorage.getItem('items')? JSON.parse(localStorage.getItem('items')):[]);
-    const [newItem, setNewItem] = useState([]);
+    const [newItem, setNewItem] = useState('');
 
     useEffect(() => {
         console.log('use effect hook ran ::', items);
+        localStorage.setItem('items', JSON.stringify(items));
     },[items]);
 
     const newItemOnChange = (event) => {
@@ -19,12 +20,15 @@ const Home = () => {
         event.preventDefault();
         console.log('New item to be saved ::', newItem);
         setItems([...items, newItem]);
-        localStorage.setItem('items', JSON.stringify(items));
+        // localStorage.setItem('items', JSON.stringify(items));
         setNewItem('');
     };
 
     const deleteItem = (index) => {
         console.log("tryna delete item ::" + index);
+        let itemsCopy = Object.assign([], items);
+        itemsCopy.splice(index, 1);
+        setItems(itemsCopy);
     };
 
     return (
