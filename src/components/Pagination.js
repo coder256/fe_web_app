@@ -11,7 +11,11 @@ const Pagination = (props) => {
     useEffect(() => {
         const pgs =  (items.length%perPage > 0) ? Math.floor(items.length/perPage) + 1 : Math.floor(items.length/perPage);
         setPages(pgs);
-        onChangePage(page);
+        if (page <= pages) {
+            onChangePage(page);
+        } else {
+            onChangePage(pages);
+        }
     },[items,page]);
 
     const renderPages = () => {
@@ -44,11 +48,6 @@ const Pagination = (props) => {
             <nav aria-label="Page navigation">
                 <ul className="pagination">
                     {renderPages()}
-                    {/*<li className="page-item"><Link className="page-link" to="/"><span aria-hidden="true">&laquo;</span></Link></li>*/}
-                    {/*<li className="page-item"><Link className="page-link" to="/1">1</Link></li>*/}
-                    {/*<li className="page-item"><Link className="page-link" to="/2" onClick={()=>setPage(2)}>2</Link></li>*/}
-                    {/*<li className="page-item"><Link className="page-link" to="/3" onClick={()=>setPage(3)}>3</Link></li>*/}
-                    {/*<li className="page-item"><Link className="page-link" to="/"> <span aria-hidden="true">&raquo;</span></Link></li>*/}
                 </ul>
             </nav>
         </div>

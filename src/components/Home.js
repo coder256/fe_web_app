@@ -11,8 +11,8 @@ const Home = () => {
     const [page, setPage] = useState(0);
 
     useEffect(() => {
-        console.log('use effect hook ran ::', items);
-        console.log('use effect hook page ::', page);
+        // console.log('use effect hook ran ::', items);
+        // console.log('use effect hook page ::', page);
         localStorage.setItem('items', JSON.stringify(items));
         localStorage.setItem('checked', JSON.stringify(checked));
         if (page > 0) {
@@ -36,18 +36,17 @@ const Home = () => {
     const deleteItem = (index) => {
         // let del_index = ((page-1)*5) + index;
         let del_index = index;
-        console.log("tryna delete item ::" + index);
-        console.log(`tryna delete item :: ${del_index}`);
+        // console.log("tryna delete item ::" + index);
+        // console.log(`tryna delete item :: ${del_index}`);
         let itemsCopy = Object.assign([], items);
         itemsCopy.splice(del_index, 1);
-        console.log("sliced items ::", itemsCopy);
         setItems(itemsCopy);
     };
 
     const checkItem = (index) => {
         // let check_index = ((page-1)*5) + index;
         let check_index = index;
-        console.log("tryna check item ::" + check_index);
+        // console.log("tryna check item ::" + check_index);
         let checkedCopy = Object.assign([], checked);
         checkedCopy.push(items[check_index]);
         setChecked(checkedCopy);
