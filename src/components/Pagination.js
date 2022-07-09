@@ -21,7 +21,7 @@ const Pagination = (props) => {
         if (page == 1) {
             p_c = 'disabled';
         }
-        pgs.push(<li className={`page-item ${p_c}`} key={0}><Link className="page-link" to="/"><span aria-hidden="true">&laquo;</span></Link></li>);
+        pgs.push(<li className={`page-item ${p_c}`} key={0}><Link className="page-link" onClick={()=>setPage(page-1)} to={`/${page-1}`}><span aria-hidden="true">&laquo;</span></Link></li>);
         for (let i=1; i<=pages; i++){
             if (i == page) {
                 pgs.push(<li className="page-item active" key={i}><Link className="page-link" onClick={()=>setPage(i)} to={`/${i}`}>{i}</Link></li>);
@@ -34,7 +34,7 @@ const Pagination = (props) => {
         if(page >= pages) {
             n_c = 'disabled';
         }
-        pgs.push(<li className={`page-item ${n_c}`} key={pages+1}><Link className="page-link" to="/"> <span aria-hidden="true">&raquo;</span></Link></li>);
+        pgs.push(<li className={`page-item ${n_c}`} key={pages+1}><Link className="page-link" onClick={()=>setPage(page+1)} to={`/${page+1}`}> <span aria-hidden="true">&raquo;</span></Link></li>);
 
         return pgs;
     };

@@ -27,22 +27,26 @@ const Home = () => {
     const saveItem = (event) => {
         event.preventDefault();
         console.log('New item to be saved ::', newItem);
-        setItems([...items, newItem]);
-        // localStorage.setItem('items', JSON.stringify(items));
+        if (newItem !== '') {
+            setItems([...items, newItem]);
+        }
         setNewItem('');
     };
 
     const deleteItem = (index) => {
-        let del_index = ((page-1)*5) + index;
-        // console.log("tryna delete item ::" + index);
+        // let del_index = ((page-1)*5) + index;
+        let del_index = index;
+        console.log("tryna delete item ::" + index);
         console.log(`tryna delete item :: ${del_index}`);
         let itemsCopy = Object.assign([], items);
         itemsCopy.splice(del_index, 1);
+        console.log("sliced items ::", itemsCopy);
         setItems(itemsCopy);
     };
 
     const checkItem = (index) => {
-        let check_index = ((page-1)*5) + index;
+        // let check_index = ((page-1)*5) + index;
+        let check_index = index;
         console.log("tryna check item ::" + check_index);
         let checkedCopy = Object.assign([], checked);
         checkedCopy.push(items[check_index]);
@@ -85,7 +89,7 @@ const Home = () => {
                         <div className="form-group">
                             <input type="text" className="form-control" value={newItem} placeholder="New Task" onChange={newItemOnChange}/>
                         </div>
-                        <button className="btn btn-dark mt-2 w-100" onClick={saveItem}>Save</button>
+                        <button className="btn btn-dark mt-2 w-100" disabled={newItem==''} onClick={saveItem}>Save</button>
                     </form>
                 </div>
             </div>
