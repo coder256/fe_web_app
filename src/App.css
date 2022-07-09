@@ -1,5 +1,6 @@
 body {
   background-color: #f0eeef !important;
+  padding-bottom: 50px;
 }
 
 .App {
@@ -43,4 +44,13 @@ body {
 
 .bg-default {
   background-color: #8F8389;
+}
+
+.list-item {
+  box-shadow: #f0f2f3 1px 1px;
+  margin-bottom: 5px;
+}
+
+.not-found {
+  width: 100%;
 }

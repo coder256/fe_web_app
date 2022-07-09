@@ -14,11 +14,11 @@ const Layout = () => {
 
             <div className="container mt-5">
                 <div className="row">
-                    <div className="col-4"></div>
-                    <div className="col-12 col-md-4 bg-light border-1">
+                    <div className="col-3"></div>
+                    <div className="col-12 col-md-6 bg-light border-1 rounded-2 p-2">
                         <Outlet />
                     </div>
-                    <div className="col-4"></div>
+                    <div className="col-3"></div>
                 </div>
             </div>
 
